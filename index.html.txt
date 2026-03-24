@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Timothy & [Partner Name] Wedding</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    color: #333;
+    background-color: #faf7f2;
+}
+
+header {
+    text-align: center;
+    padding: 80px 20px;
+    background: url('https://images.unsplash.com/photo-1529634898911-67a8a4e0a6c9') no-repeat center/cover;
+    color: white;
+}
+
+header h1 {
+    font-size: 48px;
+    margin: 0;
+}
+
+header p {
+    font-size: 20px;
+}
+
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.details {
+    max-width: 600px;
+    margin: auto;
+}
+
+.rsvp input, .rsvp button {
+    padding: 12px;
+    margin: 10px;
+    width: 80%;
+    max-width: 300px;
+}
+
+button {
+    background-color: #c8a97e;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+    background: #eee;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Timothy & [Partner Name]</h1>
+    <p>We’re getting married!</p>
+    <p>June 2026</p>
+</header>
+
+<section>
+    <h2>Our Story</h2>
+    <p class="details">
+        Our journey began with a simple hello and has grown into a lifetime commitment. 
+        We are excited to celebrate this special day with you.
+    </p>
+</section>
+
+<section>
+    <h2>Wedding Details</h2>
+    <p class="details">
+        📍 Venue: Sawela Lodge, Naivasha <br>
+        📅 Date: June XX, 2026 <br>
+        ⏰ Time: 12:00 PM
+    </p>
+</section>
+
+<section class="rsvp">
+    <h2>RSVP</h2>
+    <input type="text" placeholder="Your Name">
+    <input type="email" placeholder="Your Email">
+    <br>
+    <button onclick="alert('Thank you for your RSVP!')">Submit</button>
+</section>
+
+<footer>
+    <p>With love, Timothy & [Partner Name]</p>
+</footer>
+
+</body>
+</html>
