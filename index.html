@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cherono & Tim </title>
- 
+
+<title>Cherono & Tim</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
@@ -32,16 +33,12 @@ header {
 header h1 {
     font-family: 'Playfair Display', serif;
     font-size: 70px;
-    margin: 0;
-    letter-spacing: 2px;
 }
 
 header p {
     font-size: 22px;
-    margin-top: 15px;
 }
 
-/* GENERAL SECTIONS */
 section {
     padding: 80px 20px;
     text-align: center;
@@ -50,7 +47,6 @@ section {
 h2 {
     font-family: 'Playfair Display', serif;
     font-size: 40px;
-    margin-bottom: 20px;
 }
 
 .container {
@@ -59,18 +55,15 @@ h2 {
     line-height: 1.8;
 }
 
-/* COUNTDOWN */
 #countdown {
     margin-top: 20px;
     font-size: 26px;
 }
 
-/* DETAILS */
 .details {
     background: #f5efe6;
 }
 
-/* GALLERY */
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -83,13 +76,11 @@ h2 {
     object-fit: cover;
 }
 
-/* RSVP */
-input {
+input, select {
     padding: 12px;
     margin: 10px;
     width: 80%;
     max-width: 350px;
-    border: 1px solid #ccc;
 }
 
 button {
@@ -105,7 +96,6 @@ button:hover {
     background: #b8966d;
 }
 
-/* FOOTER */
 footer {
     background: #2c2c2c;
     color: white;
@@ -139,8 +129,8 @@ footer {
     <h2>Wedding Details</h2>
     <div class="container">
         <p>
-            📍 Lake Naivasha Sawela Lodge, Naivasha <br>
-            📅 June 26, 2026 <br>
+            📍 Lake Naivasha Sawela Lodge<br>
+            📅 June 26, 2026<br>
             ⏰ 12:00 PM
         </p>
     </div>
@@ -174,60 +164,17 @@ footer {
         <option value="Not Attending">Not Attending</option>
     </select><br>
 
-    <input type="number" id="guests" placeholder="Number of Guests (including you)"><br>
+    <input type="number" id="guests" placeholder="Number of Guests"><br>
 
+    <select id="meal">
+        <option value="Chicken">Chicken</option>
+        <option value="Beef">Beef</option>
+        <option value="Vegetarian">Vegetarian</option>
     </select><br>
 
-    <button onclick="submitRSVP()">Submit</button>
+    <button onclick="submitRSVP()">Submit RSVP</button>
 
     <p id="message"></p>
-</section>
-
-<script>
-const scriptURL = https://script.google.com/macros/s/AKfycbxom-OpzoQ5x9XUJ_2IcFldJN1pATKclqx-4d8Tv6xmAB7INR7HU29ZIkxksg1TGNMpvA/exec;
-
-function submitRSVP() {
-    const data = {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        attendance: document.getElementById("attendance").value,
-        guests: document.getElementById("guests").value,
-        meal: document.getElementById("meal").value
-    };
-
-    fetch(scriptURL, {
-        method: "POST",
-        body: JSON.stringify(data)
-    })
-    .then(response => {
-        document.getElementById("message").innerText = "RSVP submitted successfully!";
-    })
-    .catch(error => {
-        document.getElementById("message").innerText = "Something went wrong.";
-    });
-}
-</script>
-</section>
-
-<script>
-const scriptURL = https://script.google.com/macros/s/AKfycbyTyFlBSB5VrQrPmyCleZ0ESPf129W3PhVYmBNbgFq9cAXylkPNq-8GAYGgHdmlfpKFLw/exec;
-
-function submitRSVP() {
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-
-    fetch(scriptURL, {
-        method: "POST",
-        body: JSON.stringify({ name: name, email: email })
-    })
-    .then(response => {
-        document.getElementById("message").innerText = "Thank you for your RSVP!";
-    })
-    .catch(error => {
-        document.getElementById("message").innerText = "Error submitting RSVP.";
-    });
-}
-</script>
 </section>
 
 <footer>
@@ -235,10 +182,19 @@ function submitRSVP() {
 </footer>
 
 <script>
-// COUNTDOWN
+
+/* =========================
+   CONFIG (IMPORTANT)
+========================= */
+const scriptURL = "YOUR_APPS_SCRIPT_URL"; 
+const apiKey = "YOUR_SECRET_API_KEY";
+
+/* =========================
+   COUNTDOWN
+========================= */
 const weddingDate = new Date("June 26, 2026 12:00:00").getTime();
 
-const countdown = setInterval(function() {
+setInterval(() => {
     const now = new Date().getTime();
     const distance = weddingDate - now;
 
@@ -249,10 +205,42 @@ const countdown = setInterval(function() {
         days + " days " + hours + " hours to go";
 
     if (distance < 0) {
-        clearInterval(countdown);
         document.getElementById("countdown").innerHTML = "Today is the day!";
     }
 }, 1000);
+
+/* =========================
+   RSVP SUBMISSION
+========================= */
+function submitRSVP() {
+
+    const data = {
+        apiKey: apiKey,
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        attendance: document.getElementById("attendance").value,
+        guests: document.getElementById("guests").value,
+        meal: document.getElementById("meal").value
+    };
+
+    // Basic validation
+    if (!data.name || !data.email) {
+        document.getElementById("message").innerText = "Please fill in all required fields.";
+        return;
+    }
+
+    fetch(scriptURL, {
+        method: "POST",
+        body: JSON.stringify(data)
+    })
+    .then(() => {
+        document.getElementById("message").innerText = "RSVP submitted successfully!";
+    })
+    .catch(() => {
+        document.getElementById("message").innerText = "Something went wrong.";
+    });
+}
+
 </script>
 
 </body>
