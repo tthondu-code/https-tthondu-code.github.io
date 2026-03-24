@@ -165,9 +165,34 @@ footer {
 
 <section>
     <h2>RSVP</h2>
-    <input type="text" placeholder="Your Name"><br>
-    <input type="email" placeholder="Your Email"><br>
-    <button onclick="alert('Thank you for your RSVP!')">Submit</button>
+
+    <input type="text" id="name" placeholder="Your Name"><br>
+    <input type="email" id="email" placeholder="Your Email"><br>
+
+    <button onclick="submitRSVP()">Submit</button>
+
+    <p id="message"></p>
+</section>
+
+<script>
+const scriptURL = https://script.google.com/macros/s/AKfycbyTyFlBSB5VrQrPmyCleZ0ESPf129W3PhVYmBNbgFq9cAXylkPNq-8GAYGgHdmlfpKFLw/exec;
+
+function submitRSVP() {
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+
+    fetch(scriptURL, {
+        method: "POST",
+        body: JSON.stringify({ name: name, email: email })
+    })
+    .then(response => {
+        document.getElementById("message").innerText = "Thank you for your RSVP!";
+    })
+    .catch(error => {
+        document.getElementById("message").innerText = "Error submitting RSVP.";
+    });
+}
+</script>
 </section>
 
 <footer>
