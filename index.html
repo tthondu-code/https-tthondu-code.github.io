@@ -166,12 +166,51 @@ footer {
 <section>
     <h2>RSVP</h2>
 
-    <input type="text" id="name" placeholder="Your Name"><br>
-    <input type="email" id="email" placeholder="Your Email"><br>
+    <input type="text" id="name" placeholder="Full Name"><br>
+    <input type="email" id="email" placeholder="Email"><br>
+
+    <select id="attendance">
+        <option value="Attending">Attending</option>
+        <option value="Not Attending">Not Attending</option>
+    </select><br>
+
+    <input type="number" id="guests" placeholder="Number of Guests (including you)"><br>
+
+    <select id="meal">
+        <option value="Chicken">Chicken</option>
+        <option value="Beef">Beef</option>
+        <option value="Vegetarian">Vegetarian</option>
+    </select><br>
 
     <button onclick="submitRSVP()">Submit</button>
 
     <p id="message"></p>
+</section>
+
+<script>
+const scriptURL = https://script.google.com/macros/s/AKfycbxom-OpzoQ5x9XUJ_2IcFldJN1pATKclqx-4d8Tv6xmAB7INR7HU29ZIkxksg1TGNMpvA/exec;
+
+function submitRSVP() {
+    const data = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        attendance: document.getElementById("attendance").value,
+        guests: document.getElementById("guests").value,
+        meal: document.getElementById("meal").value
+    };
+
+    fetch(scriptURL, {
+        method: "POST",
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        document.getElementById("message").innerText = "RSVP submitted successfully!";
+    })
+    .catch(error => {
+        document.getElementById("message").innerText = "Something went wrong.";
+    });
+}
+</script>
 </section>
 
 <script>
