@@ -3,99 +3,113 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tim & Cherono </title>
+<title>Timothy & [Partner Name]</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
 body {
     margin: 0;
-    font-family: 'Poppins', sans-serif;
-    color: #333;
-    background-color: #faf7f2;
+    font-family: 'Montserrat', sans-serif;
+    color: #2c2c2c;
+    background-color: #fdfbf7;
 }
 
-/* HERO SECTION */
+/* HERO */
 header {
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-    url('https://images.unsplash.com/photo-1519741497674-611481863552');
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)),
+    url('https://images.unsplash.com/photo-1507504031003-b417219a0fde');
     background-size: cover;
     background-position: center;
-    color: white;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     text-align: center;
+    color: white;
 }
 
 header h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 60px;
+    font-size: 70px;
     margin: 0;
+    letter-spacing: 2px;
 }
 
 header p {
     font-size: 22px;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
-/* SECTION STYLING */
+/* GENERAL SECTIONS */
 section {
-    padding: 70px 20px;
+    padding: 80px 20px;
     text-align: center;
 }
 
 h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 36px;
+    font-size: 40px;
     margin-bottom: 20px;
 }
 
 .container {
-    max-width: 700px;
+    max-width: 800px;
     margin: auto;
-}
-
-/* DETAILS */
-.details p {
-    font-size: 18px;
-    line-height: 1.6;
-}
-
-/* RSVP */
-.rsvp input {
-    padding: 12px;
-    margin: 10px;
-    width: 80%;
-    max-width: 320px;
-    border: 1px solid #ccc;
-}
-
-button {
-    padding: 12px 30px;
-    background-color: #c8a97e;
-    border: none;
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-button:hover {
-    background-color: #b8966d;
+    line-height: 1.8;
 }
 
 /* COUNTDOWN */
 #countdown {
-    font-size: 24px;
     margin-top: 20px;
+    font-size: 26px;
+}
+
+/* DETAILS */
+.details {
+    background: #f5efe6;
+}
+
+/* GALLERY */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+/* RSVP */
+input {
+    padding: 12px;
+    margin: 10px;
+    width: 80%;
+    max-width: 350px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 12px 35px;
+    background: #c8a97e;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #b8966d;
 }
 
 /* FOOTER */
 footer {
-    background: #eee;
-    padding: 20px;
-    text-align: center;
+    background: #2c2c2c;
+    color: white;
+    padding: 30px;
 }
 </style>
 </head>
@@ -104,8 +118,7 @@ footer {
 
 <header>
     <div>
-        <h1>Tim ^ Cherono </h1>
-        <p>We’re getting married</p>
+        <h1>Timothy & [Partner Name]</h1>
         <p>June XX, 2026 • Naivasha</p>
         <div id="countdown"></div>
     </div>
@@ -115,8 +128,9 @@ footer {
     <h2>Our Story</h2>
     <div class="container">
         <p>
-            From a simple beginning to a lifetime commitment, our journey has been one of love,
-            growth, and shared dreams. We are excited to celebrate this special day with you.
+            What began as a simple connection grew into a partnership rooted in love,
+            purpose, and shared dreams. We are grateful for every step of this journey
+            and look forward to celebrating this new chapter with you.
         </p>
     </div>
 </section>
@@ -125,20 +139,35 @@ footer {
     <h2>Wedding Details</h2>
     <div class="container">
         <p>
-            📍 Lake Naivasha Sawela Lodge, Naivasha<br>
-            📅 June 26, 2026<br>
+            📍 Sawela Lodge, Naivasha <br>
+            📅 June XX, 2026 <br>
             ⏰ 12:00 PM
         </p>
     </div>
 </section>
 
-<section class="rsvp">
+<section>
+    <h2>Gallery</h2>
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486">
+        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc">
+        <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91">
+    </div>
+</section>
+
+<section>
+    <h2>Location</h2>
+    <iframe 
+        src="https://maps.google.com/maps?q=Sawela%20Lodge%20Naivasha&t=&z=13&ie=UTF8&iwloc=&output=embed"
+        width="100%" height="300" style="border:0;">
+    </iframe>
+</section>
+
+<section>
     <h2>RSVP</h2>
-    <input type="text" placeholder="Your Name">
-    <br>
-    <input type="email" placeholder="Your Email">
-    <br>
-    <button onclick="alert('Thank you! We have received your RSVP.')">Submit</button>
+    <input type="text" placeholder="Your Name"><br>
+    <input type="email" placeholder="Your Email"><br>
+    <button onclick="alert('Thank you for your RSVP!')">Submit</button>
 </section>
 
 <footer>
@@ -146,7 +175,7 @@ footer {
 </footer>
 
 <script>
-// COUNTDOWN TIMER
+// COUNTDOWN
 const weddingDate = new Date("June 30, 2026 12:00:00").getTime();
 
 const countdown = setInterval(function() {
@@ -161,7 +190,7 @@ const countdown = setInterval(function() {
 
     if (distance < 0) {
         clearInterval(countdown);
-        document.getElementById("countdown").innerHTML = "It's the big day!";
+        document.getElementById("countdown").innerHTML = "Today is the day!";
     }
 }, 1000);
 </script>
